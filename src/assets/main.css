@@ -1,0 +1,110 @@
+@import './base.css';
+
+#app {
+    width: 100%;
+    height: 100vh;
+    font-weight: normal;
+}
+
+a,
+.green {
+    text-decoration: none;
+    color: hsla(160, 100%, 37%, 1);
+    transition: 0.4s;
+    padding: 3px;
+}
+
+body {
+    overflow: hidden;
+}
+
+button {
+    transition-property: background, color, border-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.search-result {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    height: fit-content;
+    margin: 0 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.search-result:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.result-title {
+    font-size: 1.25rem;
+}
+
+.result-text {
+    font-size: 1rem;
+    color: #666;
+}
+
+.result-version {
+    font-size: 1.25rem;
+    user-select: none;
+}
+
+.search-result.expendable {
+    padding: 5px;
+    display: grid;
+    grid-template-rows: max-content 0fr;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-result.expended {
+    grid-template-rows: max-content 1fr;
+}
+
+.result-head {
+    grid-row: 1 / 2;
+    border-radius: 8px;
+    height: fit-content;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.result-head:hover, .result-head:focus-visible {
+    background: #f0f0f0;
+}
+
+.result-head:active, .result-head.pressed {
+    background: #dddddd;
+}
+
+.expendable .icon {
+    grid-row: 1 / 3;
+    grid-column: 3 / 4;
+    place-self: center;
+    margin-left: 5px;
+}
+
+.expendable .result-content {
+    grid-row: 2 / 3;
+    min-height: 0;
+    overflow: hidden;
+    transition: padding 0.2s ease-in-out;
+}
+
+.expended .icon {
+    rotate: 180deg;
+}
+
+@media (hover: hover) {
+    a:hover {
+        background-color: hsla(160, 100%, 37%, 0.2);
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        display: flex;
+        place-items: flex-start;
+    }
+}
